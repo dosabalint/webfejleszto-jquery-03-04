@@ -1,23 +1,17 @@
 $(function() {
   // elemek összegyűjtése
-  let $button = $('button');
-
-  // változók
-  let gallery;
-  
-  // galéria inicializálás
-  InitGallery();
+  let $button = $('button#open-gallery');
 
   // gombnyomásra reagálás
   $button.click(function() {
     // galéria megnyitása
-    gallery.init();
+    OpenGallery();
   });
 
   //////////////////////////////////////////////////
 
-  // galéria inicialitálás, képek megadásas
-  function InitGallery() {
+  // galéria megnyitása
+  function OpenGallery() {
     let pswpElement = document.querySelectorAll('.pswp')[0];
 
     // build items array
@@ -52,11 +46,12 @@ $(function() {
     };
 
     // Initializes and opens PhotoSwipe
-    gallery = new PhotoSwipe(
+    let gallery = new PhotoSwipe(
       pswpElement,
       PhotoSwipeUI_Default,
       items,
       options
     );
+    gallery.init();
   }
 });
